@@ -30,7 +30,9 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '-o $(Build.ArtifactStagingDirectory)/Output'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
+    modifyOutputPath: true
 - task: PowerShell@2
   displayName: List Files Post Publish
   inputs:
